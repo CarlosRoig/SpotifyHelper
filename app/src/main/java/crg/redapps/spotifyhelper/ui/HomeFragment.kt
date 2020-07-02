@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import crg.redapps.spotifyhelper.R
 import crg.redapps.spotifyhelper.databinding.FragmentHomeBinding
@@ -47,9 +49,9 @@ class HomeFragment : Fragment() {
 
         viewModel.navigateToSong.observe(this, Observer {
             it?.let {
-                Toast.makeText(context, "Song ${it.name} clicked", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSongDetailsFragment(it))
+                viewModel.navigatedToDetails()
             }
-//            viewModel.navigatedToDetails()
         })
 
         return binding.root
