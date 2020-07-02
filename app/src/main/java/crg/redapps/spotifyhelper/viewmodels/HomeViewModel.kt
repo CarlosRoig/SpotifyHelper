@@ -1,10 +1,9 @@
 package crg.redapps.spotifyhelper.viewmodels
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import crg.redapps.spotifyhelper.database.getDatabase
+import crg.redapps.spotifyhelper.domain.Song
 import crg.redapps.spotifyhelper.repository.SongsRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,6 +19,9 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val database = getDatabase(application)
     private val repository = SongsRepository(database)
 
+    private val _navigateToSong = MutableLiveData<Song>()
+    val navigateToSong: LiveData<Song>
+        get() = _navigateToSong
 
     init {
         Timber.i("CARLOS: On init of View Model")
@@ -44,6 +46,14 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
+    }
+
+    fun navigateToSongDetails(song: Song) {
+        _navigateToSong.value = song
+    }
+
+    fun navigatedToDetails() {
+        _navigateToSong.value = null
     }
 
 }

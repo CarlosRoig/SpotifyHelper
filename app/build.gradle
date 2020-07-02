@@ -63,4 +63,7 @@ dependencies {
     //Loging
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$version_recyclerview"
+
 }

@@ -1,5 +1,6 @@
 package crg.redapps.spotifyhelper.repository
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import crg.redapps.spotifyhelper.database.SongsDatabase
@@ -10,6 +11,7 @@ import crg.redapps.spotifyhelper.network.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber
+import java.lang.Exception
 
 class SongsRepository(private val database: SongsDatabase) {
     val songs: LiveData<List<Song>> = Transformations.map(database.songsDao.getAllSongs()) {
@@ -17,10 +19,12 @@ class SongsRepository(private val database: SongsDatabase) {
     }
 
     suspend fun refreshSongs() {
-        Timber.i("CARLOS: Refreshing Songs")
         withContext(Dispatchers.IO) {
-            val songs = Network.spotifyService.getMostPlayedSongs().await()
-            database.songsDao.insertSongs(*songs.asDatabaseModel())
+            try {
+                val songs = Network.spotifyService.getMostPlayedSongs().await()
+                database.songsDao.insertSongs(*songs.asDatabaseModel())
+            }catch (e: Exception) {
+            }
         }
     }
 

@@ -27,7 +27,10 @@ var client = OkHttpClient.Builder().addInterceptor(object : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response? {
         Timber.i("CARLOS: Creating Interception")
         val newRequest: Request = chain.request().newBuilder()
-            .addHeader("Authorization", "Bearer BQAHcqL2E_lmfKsU1poCgnrSk3hNPdJBIDl4G4HrFYs3mEzbfmhAKtTZWHqe4sBdZ2h4a15rDNCNDAsBBPfjktLMY4mATSFZq9SMfWd4HIuOxK3nrsM3rCoqhOafpmK5FStkHGRvwIf17cWkDwG9-zA")
+            .addHeader(
+                "Authorization",
+                "Bearer BQDFOSSKARq0ZH7lHD1WPqPCIFainbfA-F42py_3Eove9JYd10MZ3BL8IksSTwyitz2yvq2M2evk-tMv9PrAlU1iNMWUnwRfCldxTgWwO08e42eEDrLDfB1xqfWe2n_v7PS-ZAIp_2sWmoGvEg9d7KE"
+            )
             .build()
         return chain.proceed(newRequest)
     }
