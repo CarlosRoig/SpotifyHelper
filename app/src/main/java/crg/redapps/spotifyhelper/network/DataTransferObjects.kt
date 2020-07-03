@@ -1,8 +1,10 @@
 package crg.redapps.spotifyhelper.network
 
 import android.os.Parcelable
+import androidx.lifecycle.Transformations
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import crg.redapps.spotifyhelper.database.DatabaseAlbum
 import crg.redapps.spotifyhelper.database.DatabaseSong
 import kotlinx.android.parcel.Parcelize
 
@@ -32,10 +34,10 @@ fun NetworkSongContainer.asDatabaseModel(): Array<DatabaseSong> {
     return items.map {
         DatabaseSong(
             uri = it.uri,
-            name = it.name,
+            songName = it.name,
             popularity = it.popularity,
             type = it.type,
-            album = it.album.name
+            album = DatabaseAlbum(id = it.album.id, name = it.album.name, tracks = it.album.tracks)
         )
     }.toTypedArray()
 }

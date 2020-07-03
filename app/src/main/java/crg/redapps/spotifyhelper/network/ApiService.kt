@@ -29,7 +29,7 @@ var client = OkHttpClient.Builder().addInterceptor(object : Interceptor {
         val newRequest: Request = chain.request().newBuilder()
             .addHeader(
                 "Authorization",
-                "Bearer BQDFOSSKARq0ZH7lHD1WPqPCIFainbfA-F42py_3Eove9JYd10MZ3BL8IksSTwyitz2yvq2M2evk-tMv9PrAlU1iNMWUnwRfCldxTgWwO08e42eEDrLDfB1xqfWe2n_v7PS-ZAIp_2sWmoGvEg9d7KE"
+                "Bearer BQBsttIoLtQWdwfzq4RT1RC_YYg016JmVezs6vQH3oxHbgtJrgeowHSjmRWvTLCFb8u9x2CuPlrqLABRF6ZoiPOigaUfrQsT-0u-BvRI8Lfroe1J8jSNTuE5zFzsxklO22YA8f_C1cFsvHtSWwAAWB0"
             )
             .build()
         return chain.proceed(newRequest)

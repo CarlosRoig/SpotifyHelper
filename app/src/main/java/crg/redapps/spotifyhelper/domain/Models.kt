@@ -9,5 +9,12 @@ data class Song(
     val name: String,
     val popularity: Double,
     val type: String,
-    val album: String
+    val album: Album
+) : Parcelable
+
+@Parcelize
+data class Album(
+    val id: String,
+    val name: String,
+    val tracks: Double
 ) : Parcelable
