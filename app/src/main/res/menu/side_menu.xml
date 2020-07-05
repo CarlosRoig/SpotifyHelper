@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuHomeButton"
+        android:id="@+id/homeFragment"
         android:icon="@android:drawable/ic_dialog_dialer"
         android:title="@string/homeMenu" />
     <item
-        android:id="@+id/menuAboutButton"
+        android:id="@+id/aboutFragment"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/aboutMenu" />
 </menu>

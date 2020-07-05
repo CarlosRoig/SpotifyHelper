@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
             adapter = songListAdapter
         }
 
-        viewModel.navigateToSong.observe(this, Observer {
+        viewModel.navigateToSong.observe(viewLifecycleOwner, Observer {
             it?.let {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSongDetailsFragment(it))
                 viewModel.navigatedToDetails()
@@ -66,4 +66,5 @@ class HomeFragment : Fragment() {
         })
 
     }
+
 }

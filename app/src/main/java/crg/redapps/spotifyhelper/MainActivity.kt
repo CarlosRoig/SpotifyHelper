@@ -24,7 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         val navController = this.findNavController(R.id.nav_host_fragment)
 
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(binding.sideMenu, navController)
-        Timber.i("CARLOS: Log into the app")
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController= this.findNavController(R.id.nav_host_fragment)
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 }
