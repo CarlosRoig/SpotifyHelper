@@ -5,4 +5,5 @@
     <string name="homeMenu">Home</string>
     <string name="aboutMenu">About</string>
     <string name="menu_image">menu_image</string>
+    <string name="about_text">Carlos developed this app</string>
 </resources>

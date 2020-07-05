@@ -26,6 +26,6 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="crg.redapps.spotifyhelper.ui.AboutFragment"
-        android:label="fragment_about"
+        android:label="About this app"
         tools:layout="@layout/fragment_about" />
 </navigation>
