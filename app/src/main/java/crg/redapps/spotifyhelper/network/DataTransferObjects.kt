@@ -1,12 +1,9 @@
 package crg.redapps.spotifyhelper.network
 
-import android.os.Parcelable
-import androidx.lifecycle.Transformations
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import crg.redapps.spotifyhelper.database.DatabaseAlbum
 import crg.redapps.spotifyhelper.database.DatabaseSong
-import kotlinx.android.parcel.Parcelize
 
 @JsonClass(generateAdapter = true)
 data class NetworkSongContainer(val items: List<NetworkSpotifySong>)
